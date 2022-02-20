@@ -4,9 +4,10 @@
 
 
 import pickle
-import streamlit as st 
+import streamlit as st
 
-pickle_in = open("linear_svc.pkl","rb")
+
+pickle_in = open("decision_tree.pkl","rb")
 classifier=pickle.load(pickle_in)
 
 def predict_survival(Pclass,sex,SibSp,Parch,Embarked,Age_band,Fare_band):
@@ -82,7 +83,7 @@ def main():
         Age_band = 2
 
     #ticket fare of passenger
-    tfare = st.number_input("Enter ticket fare, starting from £7", min_value = 7, step = 0.5)
+    tfare = st.number_input("Enter ticket fare, starting from £7", min_value = 7.0, step = 0.5)
 
     if tfare <= 13:
         Fare_band = 0
@@ -95,7 +96,13 @@ def main():
     result=""
     if st.button("Predict"):
         result=predict_survival(Pclass,sex,SibSp,Parch,Embarked,Age_band,Fare_band)
-    st.success('The output is {}'.format(result))
+        if result == 1:
+            result = "Congratulations, you survived!"
+            st.success(result)
+        else:
+            result = "Unfortunately, you did not make it :("
+            st.error(result)
+    
 
     #Fun fact
     if st.button("Fun Fact"):
@@ -107,23 +114,23 @@ def main():
     hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
-
+            footer {visibility: hidden;}
             </style>
             """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-    #footer {visibility: hidden;}
 
-    #Customizing footer
+    #contact info
     footer="""
-    <div class='footer'>
-    <p>Contact me!<a style='display:block;text-align:center;' 
-    href='mailto:rwong696@gmail.com' target='_blank'>rwong696@gmail.com</a></p>
-    </div>"""
+        <div class='footer'>
+        <p><a style='display:block;text-align:center;'
+        href='https://www.linkedin.com/in/ryan-wong99/' target='_blank'>Connect with me on LinkedIn!</a></p>
+        </div>"""
 
     st.markdown(footer, unsafe_allow_html=True)
 
 if __name__=='__main__':
     main()
+
 
 
 
