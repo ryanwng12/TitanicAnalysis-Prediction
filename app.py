@@ -3,12 +3,8 @@
 
 
 
-import numpy as np
 import pickle
-import pandas as pd
 import streamlit as st 
-
-from PIL import Image
 
 pickle_in = open("linear_svc.pkl","rb")
 classifier=pickle.load(pickle_in)
