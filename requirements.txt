@@ -1,7 +1,7 @@
-
-import streamlit as st 
-import sklearn
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-import seaborn as sns
+numpy>=1.9.2
+scipy>=0.15.1
+scikit-learn==0.22.1
+matplotlib>=1.4.3
+pandas>=0.19
+seaborn
+streamlit
