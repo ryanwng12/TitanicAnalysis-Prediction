@@ -6,6 +6,7 @@
 import pickle
 import streamlit as st
 
+st.beta_set_page_config(page_title = 'Titanic Survival Predictor')
 
 pickle_in = open("decision_tree.pkl","rb")
 classifier=pickle.load(pickle_in)
