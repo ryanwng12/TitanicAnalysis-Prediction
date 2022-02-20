@@ -82,7 +82,7 @@ def main():
         Age_band = 2
 
     #ticket fare of passenger
-    tfare = st.number_input("Enter ticket fare, starting from £7", min_value = 7)
+    tfare = st.number_input("Enter ticket fare, starting from £7", min_value = 7, step = 0.5)
 
     if tfare <= 13:
         Fare_band = 0
@@ -102,6 +102,25 @@ def main():
         st.write("""A third class ticket cost around £7 in 1912 which is nearly £800 in today's money.
                     A second class ticket cost around £13 or nearly £1500 today and a first class ticket
                     would have set you back a minimum of £30 or more than £3300 today.""")
+
+    #Hiding hamburger menu
+    hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+
+            </style>
+            """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+    #footer {visibility: hidden;}
+
+    #Customizing footer
+    footer="""
+    <div class='footer'>
+    <p>Contact me!<a style='display:block;text-align:center;' 
+    href='mailto:rwong696@gmail.com' target='_blank'>rwong696@gmail.com</a></p>
+    </div>"""
+
+    st.markdown(footer, unsafe_allow_html=True)
 
 if __name__=='__main__':
     main()
