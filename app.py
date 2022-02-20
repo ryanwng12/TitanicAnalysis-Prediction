@@ -82,7 +82,7 @@ def main():
         Age_band = 2
 
     #ticket fare of passenger
-    tfare = st.number_input("Type your ticket fare here")
+    tfare = st.number_input("Enter ticket fare, starting from £7", min_value = 7)
 
     if tfare <= 13:
         Fare_band = 0
