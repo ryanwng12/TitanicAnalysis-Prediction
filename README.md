@@ -1,4 +1,4 @@
-# TitanicAnalysis-Prediction"
+# TitanicAnalysis-Prediction
 Welcome to my repository for the Titanic Analysis and Prediction!
 
 This is a self-learning project from analyzing data, training ML models, as well as deploying it onto Heroku.
